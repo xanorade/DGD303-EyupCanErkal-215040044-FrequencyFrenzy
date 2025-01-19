@@ -2,7 +2,7 @@ using Entitas;
 using UnityEngine;
 
 [Game]
-public class PlayerPositionComponent : IComponent
+public class SpeedComponent : IComponent
 {
     public Vector3 Value;
 }

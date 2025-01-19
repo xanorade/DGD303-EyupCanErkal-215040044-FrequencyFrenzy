@@ -1,3 +1,7 @@
 using Entitas;
 
-public class SpeedBoostAppliedComponent : IComponent { }
+[Game]
+public class SpeedBoostAppliedComponent : IComponent
+{
+    
+}

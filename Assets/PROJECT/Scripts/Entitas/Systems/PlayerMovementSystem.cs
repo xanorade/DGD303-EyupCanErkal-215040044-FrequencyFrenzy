@@ -15,41 +15,42 @@ public class PlayerMovementSystem : IExecuteSystem
         
 
         GameEntity[] entities = _context.GetEntities(
-            GameMatcher.AllOf(GameMatcher.Player, GameMatcher.PlayerAlive, GameMatcher.PlayerPosition)
-                .AnyOf(GameMatcher.PlayerSpeed, GameMatcher.SpeedBoost));
+            GameMatcher.AllOf(GameMatcher.Player, GameMatcher.Alive, GameMatcher.Position)
+                .AnyOf(GameMatcher.Speed, GameMatcher.SpeedBoost));
         
         foreach (GameEntity entity in entities)
         {
-            Vector3 oldPlayerPosition = entity.playerPosition.Value;
-            Vector3 playerSpeed = entity.playerSpeed.Value;
+            Vector3 oldPlayerPosition = entity.position.Value;
+            Vector3 PlayerSpeed = entity.speed.Value;
             
-            Vector3 newPlayerPosition = oldPlayerPosition + playerSpeed * Time.deltaTime;
+            Vector3 newPlayerPosition = oldPlayerPosition + PlayerSpeed * Time.deltaTime;
             
-            entity.ReplacePlayerPosition(newPlayerPosition);
+            entity.ReplacePosition(newPlayerPosition);
             
             if (entity.hasSpeedBoost)
             {
                 if (entity.speedBoost.Duration > 0)
                 {
                     entity.speedBoost.Duration -= Time.deltaTime;
-
-                    // Eğer hız boost'ı daha önce uygulanmadıysa
-                    if (!entity.isSpeedBoostApplied)
+                    
+                    if (!entity.speedBoost.SpeedBoostApplied)
                     {
-                        entity.isSpeedBoostApplied = true;
-                        entity.playerSpeed.Value *= 1 + entity.speedBoost.Value;  // Hızı bir kez arttır
+                        entity.speedBoost.SpeedBoostApplied = true;
+                        entity.speed.Value *= 1 + entity.speedBoost.Value;
+                        Debug.Log("hizlandi");
                     }
                 }
                 else
                 {
                     // SpeedBoost süresi bittiğinde hızı eski haline getir
-                    if (entity.isSpeedBoostApplied)
+                    if (entity.speedBoost.SpeedBoostApplied)
                     {
-                        entity.isSpeedBoostApplied = false;  // Flag'i sıfırlayın
-                        entity.playerSpeed.Value /= 1 + entity.speedBoost.Value; // Hızı eski haline getir
+                        entity.isSpeedBoostApplied = false;
+                        
                     }
-
                     entity.RemoveSpeedBoost();
+                    entity.ReplaceSpeed(new Vector3(5f,0f,0f));
+                    Debug.Log("ayni hiza donduk");
                 }
             }
 

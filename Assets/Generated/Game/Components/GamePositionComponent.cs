@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public PlayerDamageComponent playerDamage { get { return (PlayerDamageComponent)GetComponent(GameComponentsLookup.PlayerDamage); } }
-    public bool hasPlayerDamage { get { return HasComponent(GameComponentsLookup.PlayerDamage); } }
+    public PositionComponent position { get { return (PositionComponent)GetComponent(GameComponentsLookup.Position); } }
+    public bool hasPosition { get { return HasComponent(GameComponentsLookup.Position); } }
 
-    public void AddPlayerDamage(int newValue) {
-        var index = GameComponentsLookup.PlayerDamage;
-        var component = (PlayerDamageComponent)CreateComponent(index, typeof(PlayerDamageComponent));
+    public void AddPosition(UnityEngine.Vector3 newValue) {
+        var index = GameComponentsLookup.Position;
+        var component = (PositionComponent)CreateComponent(index, typeof(PositionComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplacePlayerDamage(int newValue) {
-        var index = GameComponentsLookup.PlayerDamage;
-        var component = (PlayerDamageComponent)CreateComponent(index, typeof(PlayerDamageComponent));
+    public void ReplacePosition(UnityEngine.Vector3 newValue) {
+        var index = GameComponentsLookup.Position;
+        var component = (PositionComponent)CreateComponent(index, typeof(PositionComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemovePlayerDamage() {
-        RemoveComponent(GameComponentsLookup.PlayerDamage);
+    public void RemovePosition() {
+        RemoveComponent(GameComponentsLookup.Position);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherPlayerDamage;
+    static Entitas.IMatcher<GameEntity> _matcherPosition;
 
-    public static Entitas.IMatcher<GameEntity> PlayerDamage {
+    public static Entitas.IMatcher<GameEntity> Position {
         get {
-            if (_matcherPlayerDamage == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.PlayerDamage);
+            if (_matcherPosition == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Position);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherPlayerDamage = matcher;
+                _matcherPosition = matcher;
             }
 
-            return _matcherPlayerDamage;
+            return _matcherPosition;
         }
     }
 }

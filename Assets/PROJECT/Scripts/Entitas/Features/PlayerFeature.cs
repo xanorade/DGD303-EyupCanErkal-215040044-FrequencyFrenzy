@@ -6,6 +6,6 @@ public class PlayerFeature : Feature
     {
         _gameContext = contexts.game;
 
-        Add(new PlayerCreatorSystem(contexts));
+        Add(new PlayerCreatorSystem(_gameContext));
     }
 }

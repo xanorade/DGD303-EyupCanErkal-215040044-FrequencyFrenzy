@@ -19,7 +19,17 @@ public class SpeedBoostSystem : IExecuteSystem
         GameEntity player = _context.GetGroup(GameMatcher.Player).GetSingleEntity();
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            player.AddSpeedBoost(5f, 5f);
+            if (!player.hasSpeedBoost)
+            {
+                player.AddSpeedBoost(1f,5f,false);
+                Debug.Log("speeeeeeeeeeeeeeeeed");
+
+            }
+            else
+            {
+                player.ReplaceSpeedBoost(1f, 5f,true);
+                Debug.Log("SPEEEEEEEEEEEEEEEEEDDDDD");
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.R))

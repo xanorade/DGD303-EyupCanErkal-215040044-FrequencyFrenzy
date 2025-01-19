@@ -8,42 +8,42 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Input = 0;
-    public const int PlayerAlive = 1;
-    public const int Player = 2;
-    public const int PlayerDamage = 3;
-    public const int PlayerHealth = 4;
-    public const int PlayerPosition = 5;
-    public const int PlayerSpeed = 6;
-    public const int SpeedBoostApplied = 7;
-    public const int SpeedBoost = 8;
+    public const int Alive = 0;
+    public const int Damage = 1;
+    public const int Enemy = 2;
+    public const int Health = 3;
+    public const int Player = 4;
+    public const int Position = 5;
+    public const int SpeedBoostApplied = 6;
+    public const int SpeedBoost = 7;
+    public const int Speed = 8;
     public const int Weapon = 9;
 
     public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
-        "Input",
-        "PlayerAlive",
+        "Alive",
+        "Damage",
+        "Enemy",
+        "Health",
         "Player",
-        "PlayerDamage",
-        "PlayerHealth",
-        "PlayerPosition",
-        "PlayerSpeed",
+        "Position",
         "SpeedBoostApplied",
         "SpeedBoost",
+        "Speed",
         "Weapon"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(InputComponent),
-        typeof(PlayerAliveComponent),
+        typeof(AliveComponent),
+        typeof(DamageComponent),
+        typeof(EnemyComponent),
+        typeof(HealthComponent),
         typeof(PlayerComponent),
-        typeof(PlayerDamageComponent),
-        typeof(PlayerHealthComponent),
-        typeof(PlayerPositionComponent),
-        typeof(PlayerSpeedComponent),
+        typeof(PositionComponent),
         typeof(SpeedBoostAppliedComponent),
         typeof(SpeedBoostComponent),
+        typeof(SpeedComponent),
         typeof(WeaponComponent)
     };
 }

@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly PlayerAliveComponent playerAliveComponent = new PlayerAliveComponent();
+    static readonly EnemyComponent enemyComponent = new EnemyComponent();
 
-    public bool isPlayerAlive {
-        get { return HasComponent(GameComponentsLookup.PlayerAlive); }
+    public bool isEnemy {
+        get { return HasComponent(GameComponentsLookup.Enemy); }
         set {
-            if (value != isPlayerAlive) {
-                var index = GameComponentsLookup.PlayerAlive;
+            if (value != isEnemy) {
+                var index = GameComponentsLookup.Enemy;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : playerAliveComponent;
+                            : enemyComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherPlayerAlive;
+    static Entitas.IMatcher<GameEntity> _matcherEnemy;
 
-    public static Entitas.IMatcher<GameEntity> PlayerAlive {
+    public static Entitas.IMatcher<GameEntity> Enemy {
         get {
-            if (_matcherPlayerAlive == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.PlayerAlive);
+            if (_matcherEnemy == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Enemy);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherPlayerAlive = matcher;
+                _matcherEnemy = matcher;
             }
 
-            return _matcherPlayerAlive;
+            return _matcherEnemy;
         }
     }
 }

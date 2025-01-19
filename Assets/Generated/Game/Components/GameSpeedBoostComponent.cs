@@ -11,19 +11,21 @@ public partial class GameEntity {
     public SpeedBoostComponent speedBoost { get { return (SpeedBoostComponent)GetComponent(GameComponentsLookup.SpeedBoost); } }
     public bool hasSpeedBoost { get { return HasComponent(GameComponentsLookup.SpeedBoost); } }
 
-    public void AddSpeedBoost(float newValue, float newDuration) {
+    public void AddSpeedBoost(float newValue, float newDuration, bool newSpeedBoostApplied) {
         var index = GameComponentsLookup.SpeedBoost;
         var component = (SpeedBoostComponent)CreateComponent(index, typeof(SpeedBoostComponent));
         component.Value = newValue;
         component.Duration = newDuration;
+        component.SpeedBoostApplied = newSpeedBoostApplied;
         AddComponent(index, component);
     }
 
-    public void ReplaceSpeedBoost(float newValue, float newDuration) {
+    public void ReplaceSpeedBoost(float newValue, float newDuration, bool newSpeedBoostApplied) {
         var index = GameComponentsLookup.SpeedBoost;
         var component = (SpeedBoostComponent)CreateComponent(index, typeof(SpeedBoostComponent));
         component.Value = newValue;
         component.Duration = newDuration;
+        component.SpeedBoostApplied = newSpeedBoostApplied;
         ReplaceComponent(index, component);
     }
 
