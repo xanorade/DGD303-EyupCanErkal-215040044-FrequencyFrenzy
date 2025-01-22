@@ -14,12 +14,11 @@ public static class GameComponentsLookup {
     public const int Health = 3;
     public const int Player = 4;
     public const int Position = 5;
-    public const int SpeedBoostApplied = 6;
-    public const int SpeedBoost = 7;
-    public const int Speed = 8;
-    public const int Weapon = 9;
+    public const int SpeedBoost = 6;
+    public const int Speed = 7;
+    public const int Weapon = 8;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 9;
 
     public static readonly string[] componentNames = {
         "Alive",
@@ -28,7 +27,6 @@ public static class GameComponentsLookup {
         "Health",
         "Player",
         "Position",
-        "SpeedBoostApplied",
         "SpeedBoost",
         "Speed",
         "Weapon"
@@ -41,7 +39,6 @@ public static class GameComponentsLookup {
         typeof(HealthComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),
-        typeof(SpeedBoostAppliedComponent),
         typeof(SpeedBoostComponent),
         typeof(SpeedComponent),
         typeof(WeaponComponent)
