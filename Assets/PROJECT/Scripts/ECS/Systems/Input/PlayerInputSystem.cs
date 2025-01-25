@@ -14,8 +14,8 @@ public class PlayerInputSystem : IExecuteSystem
 
     public void Execute()
     {
-        _horizontalInput = Input.GetAxis("Horizontal");
-        _verticalInput = Input.GetAxis("Vertical");
+        _horizontalInput = Input.GetAxisRaw("Horizontal");
+        _verticalInput = Input.GetAxisRaw("Vertical");
         
         _inputContext.ReplaceHorizontalInput(_horizontalInput);
         _inputContext.ReplaceVerticalInput(_verticalInput);

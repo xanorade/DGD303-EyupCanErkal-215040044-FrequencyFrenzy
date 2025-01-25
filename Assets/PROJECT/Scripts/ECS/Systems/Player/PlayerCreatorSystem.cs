@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerCreatorSystem : IInitializeSystem 
 {
     private GameContext _gameContext;
+    
+    private const float _playerSpeed = 5f;
 
     public PlayerCreatorSystem(GameContext gameContext)
     {
@@ -11,11 +13,11 @@ public class PlayerCreatorSystem : IInitializeSystem
     }
 
     public void Initialize() {
-        var player = _gameContext.CreateEntity();
+        GameEntity player = _gameContext.CreateEntity();
         player.isPlayer = true;
         player.isAlive = true;
-        player.AddPosition(new Vector3(10, 10, 0));
+        player.AddPosition(Vector3.zero);
         player.AddHealth(100);
-        player.AddSpeed(new Vector3(5f, 0f, 0f));
+        player.AddSpeed(_playerSpeed);
     }
 }

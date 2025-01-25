@@ -5,7 +5,7 @@
         public PlayerMovementFeature(Contexts contexts)
         {
             _gameContext = contexts.game;
-
-            Add(new PlayerMovementSystem(_gameContext));
+            
+            Add(new PlayerMovementSystem(contexts));
         }
     }

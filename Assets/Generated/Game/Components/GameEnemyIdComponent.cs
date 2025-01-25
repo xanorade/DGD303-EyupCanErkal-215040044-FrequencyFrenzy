@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public SpeedComponent speed { get { return (SpeedComponent)GetComponent(GameComponentsLookup.Speed); } }
-    public bool hasSpeed { get { return HasComponent(GameComponentsLookup.Speed); } }
+    public EnemyIdComponent enemyId { get { return (EnemyIdComponent)GetComponent(GameComponentsLookup.EnemyId); } }
+    public bool hasEnemyId { get { return HasComponent(GameComponentsLookup.EnemyId); } }
 
-    public void AddSpeed(float newValue) {
-        var index = GameComponentsLookup.Speed;
-        var component = (SpeedComponent)CreateComponent(index, typeof(SpeedComponent));
+    public void AddEnemyId(int newValue) {
+        var index = GameComponentsLookup.EnemyId;
+        var component = (EnemyIdComponent)CreateComponent(index, typeof(EnemyIdComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSpeed(float newValue) {
-        var index = GameComponentsLookup.Speed;
-        var component = (SpeedComponent)CreateComponent(index, typeof(SpeedComponent));
+    public void ReplaceEnemyId(int newValue) {
+        var index = GameComponentsLookup.EnemyId;
+        var component = (EnemyIdComponent)CreateComponent(index, typeof(EnemyIdComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveSpeed() {
-        RemoveComponent(GameComponentsLookup.Speed);
+    public void RemoveEnemyId() {
+        RemoveComponent(GameComponentsLookup.EnemyId);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherSpeed;
+    static Entitas.IMatcher<GameEntity> _matcherEnemyId;
 
-    public static Entitas.IMatcher<GameEntity> Speed {
+    public static Entitas.IMatcher<GameEntity> EnemyId {
         get {
-            if (_matcherSpeed == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Speed);
+            if (_matcherEnemyId == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.EnemyId);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherSpeed = matcher;
+                _matcherEnemyId = matcher;
             }
 
-            return _matcherSpeed;
+            return _matcherEnemyId;
         }
     }
 }
