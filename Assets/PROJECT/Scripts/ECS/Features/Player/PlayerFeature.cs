@@ -8,5 +8,6 @@ public class PlayerFeature : Feature
 
         Add(new PlayerCreatorSystem(_gameContext));
         Add(new PlayerDestroySystem(_gameContext));
+        Add(new PlayerBoundsSystem(_gameContext));
     }
 }

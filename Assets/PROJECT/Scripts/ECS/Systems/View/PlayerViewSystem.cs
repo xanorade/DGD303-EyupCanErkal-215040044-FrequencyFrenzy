@@ -27,7 +27,7 @@ public class PlayerViewSystem : ReactiveSystem<GameEntity>
     {
         foreach (GameEntity player in players)
         {
-            GameObject playerObject = Instantiate(PrefabReference.Instance.PlayerPrefab);
+            GameObject playerObject = Instantiate(ReferenceCatalog.Instance.PlayerPrefab);
             playerObject.transform.position = player.position.Value;
             
             player.AddView(playerObject);

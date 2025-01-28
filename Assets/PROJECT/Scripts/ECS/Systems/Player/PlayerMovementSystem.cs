@@ -14,7 +14,11 @@ public class PlayerMovementSystem : IExecuteSystem
     }
     public void Execute()
     {
+        if (_gameContext.playerEntity == null) return;
         GameEntity player = _gameContext.playerEntity;
+        
+        if(player.isAlive == false) return;
+        if(!player.hasPosition) return;
 
         if (player.hasSpeedBoost)
         {

@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefabReference : MonoBehaviour
+public class ReferenceCatalog : MonoBehaviour
 {
+    [Header("Prefabs")]
     public GameObject PlayerPrefab;
     
-    public static PrefabReference Instance;
+    [Header("Scene Objects")]
+    public GameObject[] towerReferences;
+    
+    public static ReferenceCatalog Instance;
     private void Awake()
     {
         Instance = this;

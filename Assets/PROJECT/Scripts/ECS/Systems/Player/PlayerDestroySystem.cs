@@ -1,8 +1,9 @@
 using Entitas;
-   
+using UnityEngine;
+
 public class PlayerDestroySystem : ICleanupSystem
 { 
-    GameContext _gameContext;
+    private readonly GameContext _gameContext;
 
     public PlayerDestroySystem(GameContext gameContext)
     {
@@ -15,7 +16,8 @@ public class PlayerDestroySystem : ICleanupSystem
         
         foreach (GameEntity player in deadPlayers)
         {
-            player.Destroy();
+            //player.Destroy();
+            //Debug.Log("YOU IS DEAD");
         }
     }
 }
