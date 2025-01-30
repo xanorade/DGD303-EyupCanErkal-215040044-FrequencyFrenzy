@@ -1386,7 +1386,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 4810486385415347008, guid: 526a134ce09d16743b435c331427f1f8, type: 3}
   towerReferences: []
   projectilePrefab: {fileID: 2957536663673817943, guid: 659945234adcdcb40ad1273b90c5eb4e, type: 3}
-  winScreen: {fileID: 0}
+  winScreen: {fileID: 1095912749}
 --- !u!1 &1655416170
 GameObject:
   m_ObjectHideFlags: 0
