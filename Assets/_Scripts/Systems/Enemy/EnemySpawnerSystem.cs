@@ -1,0 +1,37 @@
+using Entitas;
+using UnityEngine;
+
+public class EnemySpawnerSystem : IExecuteSystem
+{
+    private readonly GameContext _gameContext;
+    private float _spawnTimer;
+    private const float SpawnInterval = 10f;
+
+    public EnemySpawnerSystem(GameContext gameContext)
+    {
+        _gameContext = gameContext;
+    }
+
+    public void Execute()
+    {
+        _spawnTimer += Time.deltaTime;
+        
+        if (_spawnTimer >= SpawnInterval)
+        {
+            _spawnTimer = 0f;
+
+            // Yeni enemy entity'si oluştur
+            GameEntity enemy = _gameContext.CreateEntity();
+            enemy.isEnemy = true;
+            
+            // Spawn pozisyonu belirle
+            float spawnZPosition = UnityEngine.Random.Range(10f, 20f);
+            Vector3 spawnPosition = new Vector3(0f, 0f, spawnZPosition);
+
+            // Enemy entity için component'ler ekle
+            enemy.AddPosition(spawnPosition);
+            enemy.AddHealth(50);
+            enemy.AddSpeed(5f);
+        }
+    }
+}

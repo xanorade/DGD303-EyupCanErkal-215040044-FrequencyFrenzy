@@ -9,22 +9,28 @@
 public static class GameComponentsLookup {
 
     public const int Alive = 0;
-    public const int Bounds = 1;
-    public const int Damage = 2;
-    public const int Enemy = 3;
-    public const int EnemyId = 4;
-    public const int Health = 5;
-    public const int Player = 6;
-    public const int Position = 7;
-    public const int SpeedBoost = 8;
-    public const int Speed = 9;
-    public const int View = 10;
-    public const int Weapon = 11;
+    public const int AllTowersDestroyed = 1;
+    public const int Bounds = 2;
+    public const int Damage = 3;
+    public const int Enemy = 4;
+    public const int EnemyId = 5;
+    public const int Health = 6;
+    public const int Player = 7;
+    public const int Position = 8;
+    public const int Projectile = 9;
+    public const int SpeedBoost = 10;
+    public const int Speed = 11;
+    public const int Tower = 12;
+    public const int TowerDestroyed = 13;
+    public const int TriggerOrder = 14;
+    public const int View = 15;
+    public const int Weapon = 16;
 
-    public const int TotalComponents = 12;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "Alive",
+        "AllTowersDestroyed",
         "Bounds",
         "Damage",
         "Enemy",
@@ -32,14 +38,19 @@ public static class GameComponentsLookup {
         "Health",
         "Player",
         "Position",
+        "Projectile",
         "SpeedBoost",
         "Speed",
+        "Tower",
+        "TowerDestroyed",
+        "TriggerOrder",
         "View",
         "Weapon"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(AliveComponent),
+        typeof(AllTowersDestroyedComponent),
         typeof(BoundsComponent),
         typeof(DamageComponent),
         typeof(EnemyComponent),
@@ -47,8 +58,12 @@ public static class GameComponentsLookup {
         typeof(HealthComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),
+        typeof(ProjectileComponent),
         typeof(SpeedBoostComponent),
         typeof(SpeedComponent),
+        typeof(TowerComponent),
+        typeof(TowerDestroyedComponent),
+        typeof(TriggerOrderComponent),
         typeof(ViewComponent),
         typeof(WeaponComponent)
     };

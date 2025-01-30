@@ -11,19 +11,19 @@ public partial class GameEntity {
     public WeaponComponent weapon { get { return (WeaponComponent)GetComponent(GameComponentsLookup.Weapon); } }
     public bool hasWeapon { get { return HasComponent(GameComponentsLookup.Weapon); } }
 
-    public void AddWeapon(float newFireRate, float newCooldown) {
+    public void AddWeapon(float newFireRate, int newDamage) {
         var index = GameComponentsLookup.Weapon;
         var component = (WeaponComponent)CreateComponent(index, typeof(WeaponComponent));
-        component.fireRate = newFireRate;
-        component.cooldown = newCooldown;
+        component.FireRate = newFireRate;
+        component.Damage = newDamage;
         AddComponent(index, component);
     }
 
-    public void ReplaceWeapon(float newFireRate, float newCooldown) {
+    public void ReplaceWeapon(float newFireRate, int newDamage) {
         var index = GameComponentsLookup.Weapon;
         var component = (WeaponComponent)CreateComponent(index, typeof(WeaponComponent));
-        component.fireRate = newFireRate;
-        component.cooldown = newCooldown;
+        component.FireRate = newFireRate;
+        component.Damage = newDamage;
         ReplaceComponent(index, component);
     }
 
