@@ -1,12 +1,12 @@
 public class EnemyFeature : Feature
 {
-    private readonly GameContext _gameContext;
+    private readonly Contexts _contexts;
     
     public EnemyFeature(Contexts contexts)
     {
-        _gameContext = contexts.game;
-        Add(new EnemySpawnerSystem(_gameContext));
-        Add(new EnemyMovementSystem(_gameContext));
+        _contexts = contexts;
+        Add(new EnemySpawnerSystem(contexts.game));
+        Add(new EnemyMovementSystem(contexts.game));
         Add(new EnemyCountingSystem(contexts));
     }
 }

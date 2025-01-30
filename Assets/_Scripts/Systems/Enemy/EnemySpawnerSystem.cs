@@ -39,6 +39,8 @@ public class EnemySpawnerSystem : IExecuteSystem
             enemy.AddPosition(spawnPosition);
             enemy.AddHealth(50);
             enemy.AddSpeed(3f);
+            
+            
 
             // Spawn edilen düşman sayısını artır
             _spawnedEnemies++;

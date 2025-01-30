@@ -14,8 +14,8 @@ public static class GameComponentsLookup {
     public const int Bounds = 3;
     public const int Damage = 4;
     public const int Enemy = 5;
-    public const int EnemyDestroyed = 6;
-    public const int EnemyId = 7;
+    public const int EnemyDeathCounter = 6;
+    public const int EnemyDestroyed = 7;
     public const int Health = 8;
     public const int Player = 9;
     public const int Position = 10;
@@ -37,8 +37,8 @@ public static class GameComponentsLookup {
         "Bounds",
         "Damage",
         "Enemy",
+        "EnemyDeathCounter",
         "EnemyDestroyed",
-        "EnemyId",
         "Health",
         "Player",
         "Position",
@@ -59,8 +59,8 @@ public static class GameComponentsLookup {
         typeof(BoundsComponent),
         typeof(DamageComponent),
         typeof(EnemyComponent),
+        typeof(EnemyDeathCounterComponent),
         typeof(EnemyDestroyedComponent),
-        typeof(EnemyIdComponent),
         typeof(HealthComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),

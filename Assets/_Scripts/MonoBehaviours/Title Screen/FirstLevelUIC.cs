@@ -18,6 +18,11 @@ public class FirstLevelUIC : MonoBehaviour
         _gameStateContext = Contexts.sharedInstance.gameState;
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void StartButtonClicked()
     {
         GameEntity player = _gameContext.playerEntity;

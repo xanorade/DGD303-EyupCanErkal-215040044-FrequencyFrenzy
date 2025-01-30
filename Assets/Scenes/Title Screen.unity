@@ -2313,17 +2313,37 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: '<link="www.youtube.com/playlist?list=PLQghaZBThsVOi4OAIq_lLBw5OR5dfTyxX&si=eBQ3HKV8wQ51tTCG">Click
-    on this to see the videos that I''ve watched for help)</link>
+    on this to see the videos that I''ve watched for help(I couldn''t implement all
+    of them))</link>
 
 
 
 
+    I also watched your videos from Contemporary and Game
+    Engines playlists.
 
 
 
 
-    and
-    lastly thank you ChatGPT.'
+    there is only one asset (player boot) and its done
+    by me.
+
+
+
+
+    I tried to implement Entitas as much as i can.
+
+
+
+
+    I don''t
+    have any project timing or handling skills as you can see but  I will learn from
+    my mistakes,
+
+
+
+
+    and lastly thanks to ChatGPT.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

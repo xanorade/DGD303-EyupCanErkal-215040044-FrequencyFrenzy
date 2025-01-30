@@ -1,3 +1,4 @@
+using System;
 using Entitas;
 using UnityEngine;
 using Entitas.Unity;
@@ -7,7 +8,7 @@ public class HitDetector : MonoBehaviour
     private GameContext _gameContext;
     private EntityLink _link;
     private GameEntity _projectileEntity;
-
+    
     private void Start()
     {
         _gameContext = Contexts.sharedInstance.game;
@@ -29,7 +30,19 @@ public class HitDetector : MonoBehaviour
             
             if (enemyEntity != null)
             {
-                enemyEntity.isEnemyDestroyed = true;
+                
+                if (!_gameContext.hasEnemyDeathCounter)
+                {
+                    Debug.Log("yoktu ekledim");
+                    _gameContext.ReplaceEnemyDeathCounter(1);
+                }
+                else
+                {
+                    Debug.Log("sayac artti");
+                    int newCount = _gameContext.enemyDeathCounter.KilledEnemiesCount + 1;
+                    _gameContext.ReplaceEnemyDeathCounter(newCount);
+                }
+                
                 enemyEntity.Destroy();
             }
             

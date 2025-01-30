@@ -14,7 +14,8 @@ public class EnemyCountingSystem : ReactiveSystem<GameEntity>
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
     {
-        return context.CreateCollector(GameMatcher.EnemyDestroyed.Added());
+        // "EnemyDestroyed" component'inin eklendiğini tetikliyoruz
+        return context.CreateCollector(GameMatcher.EnemyDeathCounter.Added());
     }
 
     protected override bool Filter(GameEntity entity)
@@ -24,13 +25,16 @@ public class EnemyCountingSystem : ReactiveSystem<GameEntity>
 
     protected override void Execute(List<GameEntity> entities)
     {
-        int destroyedEnemyCount = _gameContext.GetEntities(GameMatcher.EnemyDestroyed).Length;
-        
+        Debug.Log("We found");
+        int destroyedEnemyCount = _gameContext.enemyDeathCounter.KilledEnemiesCount;
 
+        Debug.Log($"Destroyed Enemies: {destroyedEnemyCount}");
+
+        // Eğer tüm düşmanlar öldürülmüşse, AllEnemiesDestroyed component'ini true yap.
         if (destroyedEnemyCount >= TotalEnemies && !_gameContext.isAllEnemiesDestroyed)
         {
-            Debug.Log("All enemies killed");
             _gameContext.isAllEnemiesDestroyed = true;
+            Debug.Log("All enemies killed!");
         }
     }
 }
