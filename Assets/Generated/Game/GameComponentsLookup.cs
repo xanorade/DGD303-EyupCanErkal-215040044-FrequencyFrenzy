@@ -9,31 +9,35 @@
 public static class GameComponentsLookup {
 
     public const int Alive = 0;
-    public const int AllTowersDestroyed = 1;
-    public const int Bounds = 2;
-    public const int Damage = 3;
-    public const int Enemy = 4;
-    public const int EnemyId = 5;
-    public const int Health = 6;
-    public const int Player = 7;
-    public const int Position = 8;
-    public const int Projectile = 9;
-    public const int SpeedBoost = 10;
-    public const int Speed = 11;
-    public const int Tower = 12;
-    public const int TowerDestroyed = 13;
-    public const int TriggerOrder = 14;
-    public const int View = 15;
-    public const int Weapon = 16;
+    public const int AllEnemiesDestroyed = 1;
+    public const int AllTowersDestroyed = 2;
+    public const int Bounds = 3;
+    public const int Damage = 4;
+    public const int Enemy = 5;
+    public const int EnemyDestroyed = 6;
+    public const int EnemyId = 7;
+    public const int Health = 8;
+    public const int Player = 9;
+    public const int Position = 10;
+    public const int Projectile = 11;
+    public const int SpeedBoost = 12;
+    public const int Speed = 13;
+    public const int Tower = 14;
+    public const int TowerDestroyed = 15;
+    public const int TriggerOrder = 16;
+    public const int View = 17;
+    public const int Weapon = 18;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
         "Alive",
+        "AllEnemiesDestroyed",
         "AllTowersDestroyed",
         "Bounds",
         "Damage",
         "Enemy",
+        "EnemyDestroyed",
         "EnemyId",
         "Health",
         "Player",
@@ -50,10 +54,12 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(AliveComponent),
+        typeof(AllEnemiesDestroyed),
         typeof(AllTowersDestroyedComponent),
         typeof(BoundsComponent),
         typeof(DamageComponent),
         typeof(EnemyComponent),
+        typeof(EnemyDestroyedComponent),
         typeof(EnemyIdComponent),
         typeof(HealthComponent),
         typeof(PlayerComponent),

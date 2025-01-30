@@ -18,7 +18,7 @@ public class EnemyMovementSystem : IExecuteSystem
         {
             if (!enemy.hasPosition || !enemy.hasSpeed) continue;
 
-            Vector3 directionToZero = Vector3.zero - enemy.position.Value;
+            Vector3 directionToZero = new Vector3(0,0,-100) - enemy.position.Value;
             directionToZero.y = 0f; 
             directionToZero.Normalize(); 
             

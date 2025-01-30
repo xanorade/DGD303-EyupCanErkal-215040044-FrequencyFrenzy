@@ -13,6 +13,12 @@ public class PlayerCreatorSystem : IInitializeSystem
     }
 
     public void Initialize() {
+        
+        if (_gameContext.GetEntities(GameMatcher.Player).Length > 0)
+        {
+            return;
+        }
+        
         GameEntity player = _gameContext.CreateEntity();
         player.isPlayer = true;
         player.AddPosition(Vector3.zero);

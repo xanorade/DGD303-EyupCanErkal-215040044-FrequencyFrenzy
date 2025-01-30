@@ -3,7 +3,7 @@ using System.Linq;
 using Entitas;
 using UnityEngine;
 
-public class ProcessInputSystem : ReactiveSystem<InputEntity>
+public class ProcessInputSystem : ReactiveSystem<InputEntity>       
 {
     private readonly InputContext _inputContext;
     private Vector2 _finalInput;

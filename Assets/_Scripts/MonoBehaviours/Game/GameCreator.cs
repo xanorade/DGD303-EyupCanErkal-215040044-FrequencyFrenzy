@@ -4,6 +4,7 @@ public class GameCreator : MonoBehaviour
 {
     private Contexts _contexts;
 
+    private GameRunningFeature _gameRunningFeature;
     private PlayerInputFeature _playerInputFeature;
     private PlayerFeature _playerFeature;
     private PlayerMovementFeature _playerMovementFeature;
@@ -15,7 +16,9 @@ public class GameCreator : MonoBehaviour
 
     private void Start()
     {
+        _contexts = Contexts.sharedInstance;
         #region FEATURES
+        _gameRunningFeature = new GameRunningFeature(Contexts.sharedInstance);
         _playerInputFeature = new PlayerInputFeature(Contexts.sharedInstance);
         _playerFeature = new PlayerFeature(Contexts.sharedInstance);
         _playerMovementFeature = new PlayerMovementFeature(Contexts.sharedInstance);
@@ -27,6 +30,7 @@ public class GameCreator : MonoBehaviour
         #endregion
         
         #region INITALIZATION
+        _gameRunningFeature.Initialize();
         _playerInputFeature.Initialize();
         _playerFeature.Initialize();
         _playerMovementFeature.Initialize();
@@ -41,6 +45,7 @@ public class GameCreator : MonoBehaviour
     private void Update()
     {
         #region EXECUTION
+        _gameRunningFeature.Execute();
         _playerInputFeature.Execute();
         _playerFeature.Execute();
         _playerMovementFeature.Execute();
@@ -55,10 +60,11 @@ public class GameCreator : MonoBehaviour
     private void LateUpdate()
     {
         #region CLEANUP
+        _gameRunningFeature.Cleanup();
         _playerInputFeature.Cleanup();
         _playerFeature.Cleanup();
         _playerMovementFeature.Cleanup();
-        //_playerCombatFeature.Cleanup();
+        _playerCombatFeature.Cleanup();
         _powerUpFeature.Cleanup();
         _enemyFeature.Cleanup();
         _towerInteractionFeature.Cleanup();

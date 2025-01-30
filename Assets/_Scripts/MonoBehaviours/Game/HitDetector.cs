@@ -4,18 +4,19 @@ using Entitas.Unity;
 
 public class HitDetector : MonoBehaviour
 {
+    private GameContext _gameContext;
     private EntityLink _link;
     private GameEntity _projectileEntity;
 
     private void Start()
     {
+        _gameContext = Contexts.sharedInstance.game;
         _link = GetComponent<EntityLink>();
         _projectileEntity = _link.entity as GameEntity;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Triggered");
@@ -23,10 +24,22 @@ public class HitDetector : MonoBehaviour
             // Enemy entity'sini yok et
             EntityLink enemyLink = other.GetComponent<EntityLink>();
             GameEntity enemyEntity = enemyLink?.entity as GameEntity;
+            
+            
+            
             if (enemyEntity != null)
             {
+                enemyEntity.isEnemyDestroyed = true;
                 enemyEntity.Destroy();
             }
+            
+            if (enemyLink != null)
+            {
+                enemyLink.Unlink();
+            }
+            
+            Destroy(other.gameObject); 
+            
             
             // Projectile entity'sini yok et
             if (_projectileEntity != null)
@@ -41,13 +54,6 @@ public class HitDetector : MonoBehaviour
             {
                 _link.Unlink();
             }
-
-            // Enemy Link'ini de kontrol et ve unlink et
-            if (enemyLink != null)
-            {
-                enemyLink.Unlink();
-            }
-            
             
         }
     }

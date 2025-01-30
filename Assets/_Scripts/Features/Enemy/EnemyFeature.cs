@@ -7,5 +7,6 @@ public class EnemyFeature : Feature
         _gameContext = contexts.game;
         Add(new EnemySpawnerSystem(_gameContext));
         Add(new EnemyMovementSystem(_gameContext));
+        Add(new EnemyCountingSystem(contexts));
     }
 }
